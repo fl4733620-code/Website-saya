@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Kamu</title>
+    <style>
+        /* CSS Dasar */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fff5f7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(255, 75, 129, 0.2);
+            max-width: 350px;
+            width: 85%;
+            z-index: 10;
+        }
+
+        h1 {
+            color: #ff4b81;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #555;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        .heart {
+            color: #ff4b81;
+            font-size: 50px;
+            margin-bottom: 20px;
+            animation: pulse 1.2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        /* Tombol Interaktif */
+        .btn-group {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .btn {
+            padding: 10px 25px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-yes {
+            background-color: #ff4b81;
+            color: white;
+        }
+
+        .btn-no {
+            background-color: #eee;
+            color: #888;
+        }
+
+        /* Efek Latar Belakang */
+        .floating-hearts {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="floating-hearts" id="hearts"></div>
+
+    <div class="card">
+        <div class="heart">❤️</div>
+        <h1>Hai, Kamu.</h1>
+        <p>Ada sesuatu yang ingin aku sampaikan lewat baris kode ini. Kamu adalah bagian paling indah dari hariku.</p>
+        <p><strong>Maukah kamu jadi pasanganku?</strong></p>
+        
+        <div class="btn-group">
+            <button class="btn btn-yes" onclick="terima()">Mau!</button>
+            <button class="btn btn-no" onmouseover="hindar(this)" onclick="hindar(this)">Nggak</button>
+        </div>
+    </div>
+
+    <script>
+        // Pesan saat diterima
+        function terima() {
+            alert("Terima kasih! ❤️ Kabari aku secepatnya ya!");
+            window.location.href = "https://wa.me/085737007590"; // Ganti dengan nomor WA kamu
+        }
+
+        // Fungsi iseng: tombol "Nggak" akan lari kalau mau diklik
+        function hindar(btn) {
+            const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+            btn.style.position = 'absolute';
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        }
+    </script>
+
+</body>
+</html>
